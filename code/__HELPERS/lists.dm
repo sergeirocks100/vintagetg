@@ -40,7 +40,7 @@ proc/listgetindex(list/L, index)
 			return L[index]
 	return
 
-proc/islist(list/L)
+proc/islistX(list/L)
 	if(istype(L))
 		return 1
 	return 0
@@ -82,7 +82,7 @@ proc/listclearnulls(list/list)
  * If either of arguments is not a list, returns null
  */
 /proc/difflist(var/list/first, var/list/second, var/skiprep=0)
-	if(!islist(first) || !islist(second))
+	if(!islistX(first) || !islistX(second))
 		return
 	var/list/result = new
 	if(skiprep)
@@ -99,7 +99,7 @@ proc/listclearnulls(list/list)
  * If either of arguments is not a list, returns null
  */
 /proc/uniquemergelist(var/list/first, var/list/second, var/skiprep=0)
-	if(!islist(first) || !islist(second))
+	if(!islistX(first) || !islistX(second))
 		return
 	var/list/result = new
 	if(skiprep)

@@ -15,8 +15,8 @@
 
 // Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
 /proc/sanitizeSQL(var/t as text)
-	var/sanitized_text = replacetext(t, "'", "\\'")
-	sanitized_text = replacetext(sanitized_text, "\"", "\\\"")
+	var/sanitized_text = replacetextX(t, "'", "\\'")
+	sanitized_text = replacetextX(sanitized_text, "\"", "\\\"")
 	return sanitized_text
 
 /*
@@ -177,10 +177,10 @@
 /*
  * Text modification
  */
-/proc/replacetext(text, find, replacement)
+/proc/replacetextX(text, find, replacement)
 	return list2text(text2list(text, find), replacement)
 
-/proc/replacetextEx(text, find, replacement)
+/proc/replacetextExX(text, find, replacement)
 	return list2text(text2listEx(text, find), replacement)
 
 //Adds 'u' number of zeros ahead of the text 't'
